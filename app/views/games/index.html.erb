@@ -1,0 +1,48 @@
+<div class="text-center">
+  <h1>ゲーム情報一覧</h1>
+  
+  <% @games.each do |game| %>
+    <table class="table table-bordered">
+      <tr>
+        <td>タイトル</td>
+        <td class="text-right"><%= game.title %></td>
+      </tr>
+      <tr>
+        <td>開発元</td>
+        <td class="text-right"><%= game.author %></td>
+      </tr>
+      <tr>
+        <td>販売元</td>
+        <td class="text-right"><%= game.distributor %></td>
+      </tr>
+      <tr>
+        <td>プラットフォーム</td>
+        <td class="text-right"><%= game.platform %></td>
+      </tr>
+      <tr>
+        <td>発売日</td>
+        <td class="text-right"><%= game.release %></td>
+      </tr>
+      <tr>
+        <td>プレイした日</td>
+        <td class="text-right"><%= game.play %></td>
+      </tr>
+      <tr>
+        <td>登録日</td>
+        <td class="text-right"><%= game.registration %></td>
+      </tr>
+      <tr>
+        <td>更新日</td>
+        <td class="text-right"><%= game.renewal %></td>
+      </tr>
+      <tr>
+        <td><%= link_to 'このゲーム情報を編集する', edit_game_path(game), class: 'btn btn-md btn-warning' %></td>
+        <td class="text-right"><%= link_to 'このゲーム情報を削除する', game, method: :delete, data: { confirm: '本当に削除してよろしいですか？'}, class: 'btn btn-md btn-danger' %></td>
+      </tr>
+    </table>
+  <% end %>
+  <%= link_to 'ゲーム情報新規登録', new_game_path, class: 'btn btn-lg btn-success' %>
+  <%= paginate @games %>
+</div>
+
+

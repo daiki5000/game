@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_235431) do
+ActiveRecord::Schema.define(version: 2021_03_24_004428) do
+
+  create_table "games", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.string "developer"
+    t.string "distributor"
+    t.string "platform"
+    t.date "release"
+    t.date "play"
+    t.date "registration"
+    t.date "renewal"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "author"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email"
